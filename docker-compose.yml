@@ -20,7 +20,8 @@ services:
       - PASSWORD=odoo
     volumes:
       - odoo_data:/var/lib/odoo
-      - ./addons:/mnt/extra-addons
+      - ./extra-addons:/mnt/extra-addons
+      - ./config:/etc/odoo
 
   pgadmin:
     image: dpage/pgadmin4

@@ -23,6 +23,7 @@ services:
       - ./extra-addons:/mnt/extra-addons
       - ./config:/etc/odoo
 
+
   pgadmin:
     image: dpage/pgadmin4
     depends_on:

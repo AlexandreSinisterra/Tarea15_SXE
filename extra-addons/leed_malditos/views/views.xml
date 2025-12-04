@@ -1,0 +1,37 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="leed_malditos.list">
+      <field name="name">leed_malditos list</field>
+      <field name="model">leed_malditos.leed_malditos</field>
+      <field name="arch" type="xml">
+        <list>
+          <field name="Alumno"/>
+          <field name="nivel_sueno"/>
+          <field name="bebida_recomendado"/>
+        </list>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="leed_malditos.action_window">
+      <field name="name">mostrar listado</field>
+      <field name="res_model">leed_malditos.leed_malditos</field>
+      <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Top menu item -->
+
+    <menuitem name="leed_malditos" id="leed_malditos.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="listado de lecturas" id="leed_malditos.menu_1" parent="leed_malditos.menu_root"/>
+
+    <!-- actions -->
+    <menuitem name="List" id="leed_malditos.menu_1_list" parent="leed_malditos.menu_1"
+              action="leed_malditos.action_window"/>
+
+  </data>
+</odoo>

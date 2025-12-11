@@ -14,6 +14,12 @@
               <field name="signo_chino" string="Signo del horoscopo chino"/>
             </group>
           </page>
+          <page string="Membresia">
+            <group>
+              <field name="codigo_socio" string="Código de Socio"/>
+              <field name="lvl_f" string="Nivel de Fidelidad"/>
+            </group>
+          </page>
         </xpath>
       </field>
     </record>
@@ -25,25 +31,36 @@
       <field name="view_mode">list,form</field>
     </record>
 
+  <record model="ir.actions.act_window" id="zodiaco_chino.action_kanban">
+      <field name="name">Zodiaco Chino Kanban</field>
+      <field name="res_model">res.partner</field>
+      <field name="view_mode">kanban,list,form</field>
+  </record>
+
+
     <!-- arreglar lo de abajo-->
     <record model="ir.ui.view" id="zodiaco_chino.list">
       <field name="name">zodiaco_chino list</field>
-      <field name="res_model">res.partner</field>
+      <field name="model">res.partner</field>
       <field name="inherit_id" ref="base.view_partner_tree"/>
       <field name="arch" type="xml">
         <xpath expr="//list/field[@name='complete_name']" position="after">
           <field name="signo_chino" string="Signo del horóscopo chino"/>
+          <field name="lvl_f" string="Nivel de Fidelidad" decoration-info="lvl_f == 'Gold' or lvl_f == 'Prémium'"/>
         </xpath>
       </field>
     </record>
 
     <record model="ir.ui.view" id="zodiaco_chino.kanban">
       <field name="name">zodiaco_chino kanban</field>
-      <field name="res_model">res.partner</field>
-      <field name="inherit_id" ref="base.view_partner_kanban_view"/>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="base.res_partner_kanban_view"/>
       <field name="arch" type="xml">
         <xpath expr="//div[@class='mb-1']/field[@name='display_name']" position="after">
+          <br/>
           <field name="signo_chino"/>
+          <br/>
+          <field name="codigo_socio" decoration-bf="codigo_socio != False"/>
         </xpath>
       </field>
     </record>
@@ -58,6 +75,10 @@
     <!-- actions -->
     <menuitem name="List" id="zodiaco_chino.menu_1_list" parent="zodiaco_chino.menu_1"
               action="zodiaco_chino.action_window"/>
+
+    <menuitem name="Kanban" id="zodiaco_chino.menu_kanban"
+          parent="zodiaco_chino.menu_1"
+          action="zodiaco_chino.action_kanban"/>
 
   </data>
 </odoo>

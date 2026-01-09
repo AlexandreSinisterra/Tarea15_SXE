@@ -26,6 +26,8 @@
                                     <field name="sintoma"/>
                                     <field name="resultado"/>
                                     <field name="cura"/>
+                                    <field name="medico_nombre"/>
+                                    <field name="medico_apellidos"/>
                                 </list>
                             </field>
                         </page>

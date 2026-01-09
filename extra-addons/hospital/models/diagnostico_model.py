@@ -10,3 +10,5 @@ class Diagnostico(models.Model):
     consulta = fields.Char(related='medico_id.consulta', string="Consulta", readonly=True)
     resultado = fields.Text(string="resultado")
     cura = fields.Text(string="cura")
+    medico_nombre = fields.Char(related='medico_id.nombre',string='Nombre médico',readonly=True)
+    medico_apellidos = fields.Char(related='medico_id.apellidos',string='Apellidos médico',readonly=True)

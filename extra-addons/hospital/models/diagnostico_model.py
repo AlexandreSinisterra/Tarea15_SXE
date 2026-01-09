@@ -12,3 +12,5 @@ class Diagnostico(models.Model):
     cura = fields.Text(string="cura")
     medico_nombre = fields.Char(related='medico_id.nombre',string='Nombre médico',readonly=True)
     medico_apellidos = fields.Char(related='medico_id.apellidos',string='Apellidos médico',readonly=True)
+    paciente_nombre = fields.Char(related='paciente_id.nombre',string='Nombre paciente',readonly=True)
+    paciente_apellidos = fields.Char(related='paciente_id.apellidos',string='Apellidos paciente',readonly=True)
